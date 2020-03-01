@@ -21,7 +21,7 @@ class TestInt1:
         with pytest.raises(ValueError):
             assert int('string')
 
-    @pytest.mark.parametrize('i', range(10))
+    @pytest.mark.parametrize('i', range(3))
     def test_int_1_3(self, i):
         """тест проверки целочисленного деления"""
         assert isinstance(self.buff_int // randint(i + 1, 1000), int)
