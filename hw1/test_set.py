@@ -57,7 +57,7 @@ class TestSet2:
         """тест метода copy"""
         assert len(self.buff_set) == len(self.buff_setcopy)
 
-    @pytest.mark.parametrize('i', range(10))
+    @pytest.mark.parametrize('i', range(len(buff_set)))
     def test_set_2_2(self, i):
         """тест правильности метода copy"""
         assert  self.buff_set.pop() == self.buff_setcopy.pop()
