@@ -21,7 +21,6 @@ class MainPageLocators(BaseLocators):
     RELOAD_BUTTON = (By.XPATH, '//button[@class="button button_reload button_general"]')
     S_CHEGO_NACHAT = (By.XPATH, '//div[@class="instruction__title js-instruction-title"]')
     CREATE_SEGMENT = (By.XPATH, '//a[@href="/segments/segments_list/new"]')
-    CROSS_SEGMENT = (By.XPATH, '//span[@class="icon-cross"]')
     LIST_OF_SEGMENTS = (By.XPATH, '//div[@class="page_segments__title js-title"]')
     SEGMENT_NAME = (By.XPATH, '//span[@data-field="name"]')
     DELETE_SEGMENT = (By.XPATH, '//button[@class="button button_confirm-remove button_general"]')
@@ -30,6 +29,10 @@ class MainPageLocators(BaseLocators):
     BANNER_ACTIONS = (
         By.XPATH, '//span[@class="drop-down-list__button drop-down-list__button_tbl-actions js-drop-down-button"]')
     BANNER_DELETE = (By.XPATH, '//div[@data-test="ARCHIVE"]')
+
+    @staticmethod
+    def cross_segment(name):
+        return By.XPATH, f'//a[contains(text(), "{name}")]/ancestor::tr//span[@class="icon-cross"]'
 
 
 class ErrorLoginPageLocators(BaseLocators):
@@ -50,7 +53,7 @@ class CreateCampaignPageLocators(BaseLocators):
     UPLOAD_IMAGE_BUTTON = (By.XPATH, '//input[@class="input__inp input__inp_file js-form-element"]')
     SAVE_IMAGE_BUTTON = (By.XPATH, '//input[@class="image-cropper__save js-save"]')
     ADD_ADVERT_BUTTON = (By.XPATH, '//span[@class="js-banner-form-btn"]//div')
-    CREATE_BUTTON = (By.XPATH, '//button[@class="button button_submit" and @cid="view496"]')
+    CREATE_BUTTON = (By.XPATH, '//div[@class="footer__buttons-wrap"]/div')
 
 
 class CreateSegmentPageLocators(BaseLocators):
@@ -58,4 +61,5 @@ class CreateSegmentPageLocators(BaseLocators):
         By.XPATH, '//div[@class="create-segment-form__block create-segment-form__block_add js-add-segments-button"]')
     CHECK_BOX = (By.XPATH, '//input[@class="adding-segments-source__checkbox js-main-source-checkbox"]')
     SUBMIT_BUTTON = (By.XPATH, '//div[@class="adding-segments-modal__btn-wrap js-add-button"]')
+    NAME_FIELD = (By.XPATH, '//input[@class="input__inp js-form-element" and @maxlength="60"]')
     CREATE_SEGMENT = (By.XPATH, '//button[@class="button button_submit"]')

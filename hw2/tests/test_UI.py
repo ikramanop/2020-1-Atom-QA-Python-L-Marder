@@ -1,4 +1,7 @@
+from time import time
+
 import pytest
+from selenium.common.exceptions import NoSuchElementException
 
 from ui.page.base import BasePage
 from ui.page.login import LoginPage
@@ -30,9 +33,10 @@ class TestUI:
         main_page = login
         main_page.click(main_page.locators.AUDS_LOCATOR)
         main_page.click(main_page.locators.CREATE_SEGMENT)
-        self.create_segment_page.create_segment()
+        name = str(time())
+        self.create_segment_page.create_segment(name)
         yield self.main_page
-        main_page.click(main_page.locators.CROSS_SEGMENT)
+        main_page.click(main_page.locators.cross_segment(name))
         main_page.click(main_page.locators.DELETE_SEGMENT)
 
     @pytest.fixture(scope='function')
@@ -79,9 +83,13 @@ class TestUI:
         main_page = login
         main_page.click(main_page.locators.AUDS_LOCATOR)
         main_page.click(main_page.locators.CREATE_SEGMENT)
-        self.create_segment_page.create_segment()
-        main_page.click(main_page.locators.CROSS_SEGMENT)
+        name = str(time())
+        self.create_segment_page.create_segment(name)
+        main_page.click(main_page.locators.cross_segment(name))
         main_page.click(main_page.locators.DELETE_SEGMENT)
+        self.driver.refresh()
+        with pytest.raises(NoSuchElementException):
+            assert self.driver.find_element(*main_page.locators.cross_segment(name))
         main_page.find(main_page.locators.S_CHEGO_NACHAT)
         assert self.driver.find_element(*main_page.locators.S_CHEGO_NACHAT)
         assert self.driver.find_element(*main_page.locators.CREATE_SEGMENT)
