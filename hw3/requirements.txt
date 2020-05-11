@@ -1,0 +1,9 @@
+argparse
+prettytable
+sqlalchemy
+pymysql
+faker
+flask
+socket
+paramiko
+requests
