@@ -2,16 +2,7 @@ import threading
 
 from flask import Flask, request, abort
 
-# import argparse
-
 app = Flask(__name__)
-
-# parser = argparse.ArgumentParser(add_help=True)
-#
-# parser.add_argument('host', action='store', help='host for http server')
-# parser.add_argument('port', action='store', help='port for http server')
-#
-# args = parser.parse_args()
 
 users_data = {}
 
