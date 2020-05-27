@@ -1,0 +1,17 @@
+INFO     sqlalchemy.engine.base.Engine:log.py:110 SELECT test_users.id AS test_users_id, test_users.username AS test_users_username, test_users.password AS test_users_password, test_users.email AS test_users_email, test_users.access AS test_users_access, test_users.active AS test_users_active, test_users.start_active_time AS test_users_start_active_time 
+FROM test_users 
+WHERE test_users.username = %(username_1)s 
+ LIMIT %(param_1)s
+INFO     sqlalchemy.engine.base.Engine:log.py:110 {'username_1': '1590591717.51678', 'param_1': 1}
+INFO     sqlalchemy.engine.base.Engine:log.py:110 SELECT test_users.id AS test_users_id, test_users.username AS test_users_username, test_users.password AS test_users_password, test_users.email AS test_users_email, test_users.access AS test_users_access, test_users.active AS test_users_active, test_users.start_active_time AS test_users_start_active_time 
+FROM test_users 
+WHERE test_users.username = %(username_1)s 
+ LIMIT %(param_1)s
+INFO     sqlalchemy.engine.base.Engine:log.py:110 {'username_1': '1590591717.51678', 'param_1': 1}
+INFO     sqlalchemy.engine.base.Engine:log.py:110 SELECT test_users.id AS test_users_id 
+FROM test_users 
+WHERE test_users.username = %(username_1)s
+INFO     sqlalchemy.engine.base.Engine:log.py:110 {'username_1': '1590591717.51678'}
+INFO     sqlalchemy.engine.base.Engine:log.py:110 DELETE FROM test_users WHERE test_users.username = %(username_1)s
+INFO     sqlalchemy.engine.base.Engine:log.py:110 {'username_1': '1590591717.51678'}
+INFO     sqlalchemy.engine.base.Engine:log.py:110 COMMIT

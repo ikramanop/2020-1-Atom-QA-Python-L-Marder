@@ -1,0 +1,7 @@
+INFO     sqlalchemy.engine.base.Engine:log.py:110 SELECT test_users.id AS test_users_id 
+FROM test_users 
+WHERE test_users.username = %(username_1)s
+INFO     sqlalchemy.engine.base.Engine:log.py:110 {'username_1': '1590591822.67708'}
+INFO     sqlalchemy.engine.base.Engine:log.py:110 DELETE FROM test_users WHERE test_users.username = %(username_1)s
+INFO     sqlalchemy.engine.base.Engine:log.py:110 {'username_1': '1590591822.67708'}
+INFO     sqlalchemy.engine.base.Engine:log.py:110 COMMIT
